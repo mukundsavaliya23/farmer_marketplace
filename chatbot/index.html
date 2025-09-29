@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FarmBot Pro - Agricultural AI Assistant | FarmConnect Pro</title>
+
+    <!-- Meta tags -->
+    <meta
+      name="description"
+      content="FarmBot Pro - Your intelligent agricultural assistant integrated with FarmConnect Pro marketplace"
+    />
+    <meta
+      name="keywords"
+      content="farming, agriculture, AI assistant, FarmConnect Pro, chatbot"
+    />
+
+    <!-- Favicon matching FarmConnect -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌾</text></svg>"
+    />
+
+    <!-- Fonts matching FarmConnect Pro -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Integrated FarmConnect Styles -->
+    <link rel="stylesheet" href="assets/css/farmconnect-chat.css" />
+  </head>
+  <body>
+    <!-- FarmConnect Pro Navigation -->
+    <nav class="farmconnect-navbar">
+      <div class="nav-container">
+        <a href="../index.php" class="nav-logo">
+          <i class="fas fa-seedling"></i>
+          <span>FarmConnect Pro</span>
+        </a>
+
+        <div class="nav-menu">
+          <a href="../index.php#features" class="nav-link">Marketplace</a>
+          <a href="../index.php#products" class="nav-link">Products</a>
+          <a href="#" class="nav-link active">FarmBot Pro</a>
+          <a href="../index.php#contact" class="nav-link">Contact</a>
+        </div>
+
+        <div class="nav-actions">
+          <a href="../auth/login.php" class="btn btn-secondary">
+            <i class="fas fa-sign-in-alt"></i>
+            Login
+          </a>
+          <a href="../auth/signup.php" class="btn btn-primary">
+            <i class="fas fa-user-plus"></i>
+            Join Now
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="farmconnect-container">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1>🤖 Meet FarmBot Pro</h1>
+            <p>
+              Your intelligent AI agricultural assistant, integrated seamlessly
+              with FarmConnect Pro marketplace. Get instant answers about
+              farming, crops, market prices, and agricultural guidance.
+            </p>
+
+            <div class="hero-features">
+              <div class="feature-item">
+                <i class="fas fa-brain"></i>
+                <span>AI-Powered Guidance</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-leaf"></i>
+                <span>Agricultural Expertise</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Market Insights</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-clock"></i>
+                <span>24/7 Available</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="chat-preview">
+              <div class="chat-header">
+                <div class="bot-avatar">
+                  <i class="fas fa-robot"></i>
+                </div>
+                <div class="bot-info">
+                  <h3>FarmBot Pro</h3>
+                  <span class="status">Online & Ready to Help</span>
+                </div>
+              </div>
+
+              <div class="chat-messages-preview">
+                <div class="message bot-message">
+                  <div class="message-content">
+                    Welcome to FarmConnect Pro! I can help you with crop
+                    recommendations, market prices, and farming guidance.
+                  </div>
+                </div>
+                <div class="message user-message">
+                  <div class="message-content">
+                    What are the best crops for winter season?
+                  </div>
+                </div>
+                <div class="message bot-message">
+                  <div class="message-content">
+                    Great question! For winter season, I recommend: • Wheat -
+                    excellent for cooler temperatures • Barley - drought
+                    resistant and profitable • Peas - nitrogen-fixing and
+                    nutritious
+                  </div>
+                </div>
+              </div>
+
+              <button class="start-chat-btn" onclick="openChatInterface()">
+                <i class="fas fa-comments"></i>
+                Start Chatting Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Chat Interface (Hidden by default) -->
+      <div id="chatInterface" class="chat-interface">
+        <div class="chat-container">
+          <!-- Chat Header -->
+          <div class="chat-header">
+            <div class="header-left">
+              <div class="bot-avatar">
+                <i class="fas fa-robot"></i>
+              </div>
+              <div class="bot-info">
+                <h3>FarmBot Pro</h3>
+                <span class="status">
+                  <div class="status-dot"></div>
+                  Online - Agricultural AI Assistant
+                </span>
+              </div>
+            </div>
+
+            <div class="header-actions">
+              <button
+                class="minimize-btn"
+                onclick="minimizeChatInterface()"
+                title="Minimize"
+              >
+                <i class="fas fa-minus"></i>
+              </button>
+              <button
+                class="close-btn"
+                onclick="closeChatInterface()"
+                title="Close"
+              >
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Error Message -->
+          <div id="errorMessage" class="error-message"></div>
+
+          <!-- Chat Messages -->
+          <div class="chat-messages" id="chatMessages">
+            <!-- Welcome Message -->
+            <div id="welcomeSection" class="welcome-message">
+              <div class="welcome-content">
+                <div class="welcome-avatar">
+                  <i class="fas fa-seedling"></i>
+                </div>
+                <h3>🌾 Welcome to FarmBot Pro!</h3>
+                <p>
+                  I'm your AI agricultural assistant, here to help with farming
+                  guidance, crop recommendations, market prices, and anything
+                  related to agriculture.
+                </p>
+
+                <div class="quick-actions">
+                  <button
+                    class="quick-action"
+                    data-message="What are the best crops to grow this season?"
+                  >
+                    🌱 Seasonal Crops
+                  </button>
+                  <button
+                    class="quick-action"
+                    data-message="How can I improve my soil quality?"
+                  >
+                    🌍 Soil Health
+                  </button>
+                  <button
+                    class="quick-action"
+                    data-message="What are current market prices for vegetables?"
+                  >
+                    💰 Market Prices
+                  </button>
+                  <button
+                    class="quick-action"
+                    data-message="Tell me about organic farming practices"
+                  >
+                    🌿 Organic Farming
+                  </button>
+                  <button
+                    class="quick-action"
+                    data-message="How do I manage pests naturally?"
+                  >
+                    🐛 Pest Control
+                  </button>
+                  <button
+                    class="quick-action"
+                    data-message="Help me plan my irrigation system"
+                  >
+                    💧 Irrigation Tips
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Typing Indicator -->
+            <div id="typingIndicator" class="typing-indicator">
+              <div class="message-bot-avatar">
+                <i class="fas fa-robot"></i>
+              </div>
+              <div class="typing-dots">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chat Input -->
+          <div class="chat-input-container">
+            <div class="input-wrapper">
+              <textarea
+                id="chatInput"
+                class="chat-input"
+                placeholder="Ask me about farming, crops, market prices, or any agricultural guidance..."
+                rows="1"
+                maxlength="1000"
+              ></textarea>
+              <button id="sendButton" class="send-button" type="button">
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+            <div class="input-footer">
+              <div id="inputCounter" class="input-counter">0/1000</div>
+              <div class="powered-by">
+                Powered by <strong>FarmConnect Pro</strong> • AI Assistant
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features Section -->
+      <section class="features-section">
+        <div class="section-content">
+          <h2>Why FarmBot Pro?</h2>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-brain"></i>
+              </div>
+              <h3>Intelligent AI</h3>
+              <p>
+                Powered by advanced AI technology specifically trained on
+                agricultural knowledge and farming best practices.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-database"></i>
+              </div>
+              <h3>FarmConnect Integration</h3>
+              <p>
+                Seamlessly integrated with FarmConnect Pro marketplace for
+                real-time market data and product information.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-leaf"></i>
+              </div>
+              <h3>Agricultural Expertise</h3>
+              <p>
+                Specialized knowledge in crops, soil health, pest management,
+                irrigation, and sustainable farming practices.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+              <h3>Always Accessible</h3>
+              <p>
+                Available 24/7 on any device - desktop, tablet, or mobile. Get
+                instant help whenever you need it.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Fixed Chat Widget (for embedding on other pages) -->
+    <div id="chatWidget" class="chat-widget">
+      <button
+        class="chat-widget-button"
+        onclick="openChatInterface()"
+        title="Chat with FarmBot Pro"
+      >
+        <i class="fas fa-comments"></i>
+        <div class="notification-dot"></div>
+      </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/farmconnect-chat.js"></script>
+  </body>
+</html>
