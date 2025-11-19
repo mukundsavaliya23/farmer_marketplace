@@ -22,7 +22,7 @@ A web-based platform connecting farmers directly with consumers and retailers fo
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/farmer-marketplace.git
+   git clone https://github.com/mukundsavaliya23/farmer-marketplace.git
    ```
 
 2. Import the database:
